@@ -10,7 +10,7 @@ node('node1') {
   
   stage('Git') { // Get code from GitLab repository
     git branch: 'master',
-      url: 'https://github.com/Noamshmueli/middleproject.git'
+      url: 'https://github.com/Noamshmueli/middleproject-app.git'
   }
   
   stage('Build') { // Run the docker build
@@ -50,19 +50,11 @@ node('node1') {
 
 
 
-
-
-node('master') { 
 stage('Deploy on kubernetes') {
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
-                    configs: '**/deploy.yml',
+                    configs: '/k8s*',
                     enableConfigSubstitution: true
                 )
-           
-        }
-
-
-
 }
 
