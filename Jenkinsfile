@@ -10,7 +10,7 @@ node('node1') {
   
   stage('Git') { // Get code from GitLab repository
     git branch: 'master',
-      url: 'https://github.com/Noamshmueli/middleproject-app.git'
+      url: 'http://github.com/Noamshmueli/middleproject-app.git'
   }
   
   stage('Build') { // Run the docker build
