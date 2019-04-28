@@ -46,15 +46,16 @@ node('node1') {
    return
  }
 
+
+
+
+  stage('Deploy on kubernetes') {
+   kubernetesDeploy(
+      kubeconfigId: 'kubeconfig',
+      configs: '/k8s*',
+      enableConfigSubstitution: true
+     )
 }
 
 
-
-stage('Deploy on kubernetes') {
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: '/k8s*',
-                    enableConfigSubstitution: true
-                )
 }
-
