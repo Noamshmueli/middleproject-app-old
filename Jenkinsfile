@@ -52,7 +52,7 @@ node('node1') {
   stage('Deploy on kubernetes') {
    kubernetesDeploy(
       kubeconfigId: 'kubeconfig',
-      configs: 'middleproject-app/k8s*',
+      configs: 'k8s*',
       enableConfigSubstitution: true
      )
 }
