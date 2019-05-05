@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: project-deployment
+  labels:
+    app: project
+spec:
+  replicas: 3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: project-container
+    spec:
+      containers:
+      - name: project-container
+        image: noamshmueli/projectimage:latest
+        ports:
+        - containerPort: 5000
+  
