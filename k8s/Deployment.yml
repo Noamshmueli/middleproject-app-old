@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: project-deployment
@@ -22,4 +22,6 @@ spec:
         image: noamshmueli/projectimage:latest
         ports:
         - containerPort: 5000
-  
+     selector:
+         matchLabels:
+               app: hello-world  
