@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: project-deployment
@@ -12,9 +12,6 @@ spec:
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
-  selector:
-    matchLabels:
-      app: project-app      
   template:
     metadata:
       labels:
@@ -25,3 +22,4 @@ spec:
         image: noamshmueli/projectimage:latest
         ports:
         - containerPort: 5000
+  
