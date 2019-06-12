@@ -12,7 +12,7 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: project-deployment   
+      app: project-container
   template:
     metadata:
       labels:
