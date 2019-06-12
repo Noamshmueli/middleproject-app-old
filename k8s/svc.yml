@@ -4,6 +4,7 @@ metadata:
   name: project-service
 spec:
   selector:
+    matchLabels:
     app: project-container
   type: NodePort
   ports:
